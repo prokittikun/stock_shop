@@ -1,14 +1,14 @@
 <?php
-    session_start();
-    include('include/head.php');
-    if (isset($_SESSION['loginError'])) {
-        if ($_SESSION['loginError']) {
-            echo '<div class="alert alert-danger" role="alert">
+session_start();
+include('include/head.php');
+if (isset($_SESSION['loginError'])) {
+    if ($_SESSION['loginError']) {
+        echo '<div class="alert alert-danger" role="alert">
                         <strong>Error!</strong> อีเมลหรือรหัสผ่านไม่ถูกต้อง.
                     </div>';
-        }
-        unset($_SESSION['loginError']);
     }
+    unset($_SESSION['loginError']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +28,11 @@
                 <form action="system/users/login.php" method="post">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="กรุณากรอกอีเมล">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="กรุณากรอกอีเมล" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="กรุณากรอกรหัสผ่าน">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="กรุณากรอกรหัสผ่าน" required>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block">เข้าสู่ระบบ</button>
                     <div class="text-center mt-2">

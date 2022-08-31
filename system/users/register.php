@@ -1,5 +1,6 @@
 <?php
 // register process
+session_start();
 include('../../include/sql/connect.php');
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
@@ -12,20 +13,23 @@ if (isset($_POST['submit'])) {
     if ($row) {
         $_SESSION['registerError'] = true;
         $_SESSION['registerErrorMsg'] = "อีเมลถูกใช้แล้ว";
+        header('Location: ../../register.php');
     } else {
         if ($password === $confirmPassword) {
             $sql = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
             $result = mysqli_query($conn, $sql);
             if ($result) {
                 $_SESSION['registerSuccess'] = true;
-                header('Location: ../../index.php');
+                header('Location: ../../register.php');
             } else {
                 $_SESSION['registerError'] = true;
                 $_SESSION['registerErrorMsg'] = "เกิดข้อผิดพลาด";
+                header('Location: ../../register.php');
             }
         } else {
             $_SESSION['registerError'] = true;
             $_SESSION['registerErrorMsg'] = "รหัสผ่านไม่ตรงกัน";
+            header('Location: ../../register.php');
         }
     }
 }

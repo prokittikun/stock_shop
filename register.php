@@ -9,6 +9,13 @@ if (isset($_SESSION['registerError'])) {
     }
     unset($_SESSION['registerError']);
     unset($_SESSION['registerErrorMsg']);
+}elseif(isset($_SESSION['registerSuccess'])){
+    if ($_SESSION['registerSuccess']) {
+        echo '<div class="alert alert-success" role="alert">
+                        <strong>Success!</strong> สมัครสมาชิกสำเร็จ.
+                    </div>';
+    }
+    unset($_SESSION['registerSuccess']);
 }
 ?>
 <!DOCTYPE html>
@@ -30,11 +37,15 @@ if (isset($_SESSION['registerError'])) {
                 <form action="system/users/register.php" method="post">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="กรุณากรอกอีเมล">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="กรุณากรอกอีเมล" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="กรุณากรอกรหัสผ่าน">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="กรุณากรอกรหัสผ่าน" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="กรุณากรอกรหัสผ่านอีกครั้ง" required>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block">สมัครสมาชิก</button>
                     <div class="text-center mt-2">
