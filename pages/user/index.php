@@ -7,7 +7,7 @@ if (!isset($_SESSION['userId'])) {
     header('Location: ../../index.php');
 }
 $strKeyword = null;
-if (!isset($_POST['frmSearch'])) {
+if (isset($_POST['frmSearch'])) {
     $strKeyword = $_POST["search"];
 }
 ?>
@@ -34,7 +34,7 @@ if (!isset($_POST['frmSearch'])) {
                     <div class="col-sm-4 offset-sm-8">
                         <form name="frmSearch" class="mb-2 form-inline" method="post" action="">
                             <input value="<?= $strKeyword ?>" type="text" class="form-control text-right col-9" name="search" placeholder="ค้นหาสินค้าของคุณ">
-                            <button class="ml-1 btn btn-success">ค้นหา</button>
+                            <button name="frmSearch" class="ml-1 btn btn-success">ค้นหา</button>
                         </form>
                     </div>
                 </div>
