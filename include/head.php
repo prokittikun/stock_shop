@@ -23,11 +23,17 @@
 <style>
     *{
         font-family: 'Kanit', sans-serif;
+        overflow: hidden;
     }
     #imgUNcover {
         display: block;
         width: 100%;
         height: 180px;
         object-fit: cover;
+    }
+    .scroll {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 90vh;
     }
 </style>
