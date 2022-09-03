@@ -15,7 +15,7 @@
             $_SESSION['email'] = $row['email'];
             $_SESSION['role'] = $row['role'];
             if($row['role'] == 1){
-                header('Location: ../../pages/admin');
+                header('Location: ../../pages/admin/index.php#first');
             }else{
                 header('Location: ../../pages/user');
             }
