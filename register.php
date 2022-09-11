@@ -49,7 +49,7 @@ if (isset($_SESSION['registerError'])) {
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block">สมัครสมาชิก</button>
                     <div class="text-center mt-2">
-                        <a href="index.php">เป็นสมาชิกแล้ว ?</a>
+                        <a href="login.php">เป็นสมาชิกแล้ว ?</a>
                     </div>
                 </form>
             </div>

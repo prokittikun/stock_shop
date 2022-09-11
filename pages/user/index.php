@@ -3,9 +3,9 @@
 session_start();
 include('../../include/head.php');
 include('../../include/sql/connect.php');
-if (!isset($_SESSION['userId'])) {
-    header('Location: ../../index.php');
-}
+// if (!isset($_SESSION['userId'])) {
+//     header('Location: ../../index.php');
+// }
 $strKeyword = null;
 if (isset($_POST['frmSearch'])) {
     $strKeyword = $_POST["search"];
@@ -61,7 +61,14 @@ if (isset($_POST['frmSearch'])) {
                                                 <span class="col-sm-6"><?= $row['price'] ?> ฿</span>
                                                 <div class="col-sm-6">
                                                     <div class="text-right">
-                                                        <div class="btn btn-danger btn-sm" type="button" style="border-radius: 20%;">Buy</div>
+                                                        <?php
+                                                        if (isset($_SESSION['userId'])) { ?>
+                                                            <div class="btn btn-danger btn-sm" type="button" style="border-radius: 20%;">ซื้อ</div>
+                                                        <?php } else { ?>
+                                                            <a href="../../login.php" class="btn btn-primary btn-sm" type="button" style="border-radius: 20%;">เข้าสู่ระบบ</a>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>

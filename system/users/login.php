@@ -20,7 +20,7 @@
                 header('Location: ../../pages/user');
             }
         }else{
-            header('Location: ../../index.php');
+            header('Location: ../../login.php');
             $_SESSION['loginError'] = true;
         }
     }
